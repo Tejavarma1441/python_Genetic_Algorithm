@@ -1,0 +1,13 @@
+def fixChromosomes(data, size, population):
+    datasize = data.shape[0]
+    fitness = np.zeros((datasize,1), dtype=int)
+    for i in range(0, datasize):
+        rec = data[i]
+        if(totalSize(rec, size) > 700):
+            rec = reduceSize(rec, size)
+            data[i] = rec
+        fitness[i] = -1* totalSize(data[i], size)
+    data = np.transpose(np.array([data]))
+    generation = np.concatenate((data, fitness), axis=1)
+    generation = generation[generation[:population, 1].argsort()]
+    return generation
