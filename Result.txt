@@ -1,0 +1,9 @@
+RESULT:
+			CD1: MP3 Count:17 Size: [699.73941204]
+			CD2: MP3 Count:16 Size: [699.40378924]
+			CD3: MP3 Count:15 Size: [699.6834483]
+			CD4: MP3 Count:10 Size: [699.88691372]
+			CD5: MP3 Count:15 Size: [699.36230913]
+			CD6: MP3 Count:13 Size: [699.58756269]
+			CD7: MP3 Count:12 Size: [699.4258647]
+			CD8: MP3 Count:2 Size: [40.9390979]
