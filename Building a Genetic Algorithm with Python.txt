@@ -1,0 +1,7 @@
+import numpy as np
+import random
+def generateParents(size):
+    parents = np.array(random.randint(0, 2**size - 1))
+    for i in range(1, population):
+        parents = np.append(parents, random.randint(0, 2**size - 1))
+    return parents
