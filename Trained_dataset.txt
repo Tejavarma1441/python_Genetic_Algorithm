@@ -1,0 +1,32 @@
+def train(mp3Cnt, mp3s, population, generationsPerCD):
+    curCD = 1
+    combinedSizes = totalSize(2**mp3Cnt-1, mp3Cnt)
+    doneSizes = 0.0
+    while(True):
+        if(mp3Cnt == 0):
+            break
+        parents = generateParents(mp3Cnt)
+        generation = fixChromosomes(parents, mp3Cnt, population)
+        ng = generation
+        for i in range(generationsPerCD):
+            ng = newGeneration(ng, mp3Cnt)
+            ng = fixChromosomes(ng, mp3Cnt, population)
+        allFileSize = totalSize(2**mp3Cnt-1, mp3Cnt)
+        cdContents = ng[0,0]
+        if(allFileSize < 700):
+            cdContents = 2**mp3Cnt -1
+        currentBestCDSize = totalSize(cdContents, mp3Cnt)
+        if(currentBestCDSize >= 699 or allFileSize < 700):
+            indexesToRemove = []
+            for i in range(0, mp3Cnt):
+                if(cdContents & (1 << i) > 0):
+                    indexesToRemove.append(i)
+            indexesToRemove = list(reversed(indexesToRemove))
+            doneSizes += currentBestCDSize
+            print("CD"+ str(curCD) + ": MP3 Count:" + str(len(indexesToRemove)) + " Size: " + str(currentBestCDSize))
+            mp3Cnt = mp3Cnt - len(indexesToRemove)
+            for i in range(len(indexesToRemove)):
+                mp3s = np.delete(mp3s, indexesToRemove[i])
+            curCD = curCD + 1
+        else:
+            continue
