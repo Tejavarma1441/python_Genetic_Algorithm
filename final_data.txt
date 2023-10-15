@@ -1,0 +1,7 @@
+population = 10
+mp3Cnt = 100
+generationsPerCD = 3
+maxFileSize = 100
+mp3s = maxFileSize*np.random.rand(mp3Cnt, 1)
+
+train(mp3Cnt, mp3s, population, generationsPerCD)
