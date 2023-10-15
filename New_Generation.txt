@@ -1,0 +1,11 @@
+def newGeneration(generation, size):
+    top4 = generation[:4, 0]
+    newGen = generation[:2,0]
+    for i in range(0, 4):
+        for j in range(0, 4):
+            if(i != j):
+                c1, c2 = crossover(top4[i], top4[j], size)
+                newGen = np.append(newGen, c1)
+                newGen = np.append(newGen, c2)
+                #print(newGen)
+    return newGen
