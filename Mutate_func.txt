@@ -1,0 +1,4 @@
+def mutate(rec, size):
+    index = random.randint(0, size - 1)
+    rec = rec ^ (1 << index)
+    return rec
