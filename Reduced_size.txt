@@ -1,0 +1,6 @@
+def reduceSize(rec, size):
+    while totalSize(rec, size) > 700:
+        index = random.randint(0, size - 1)
+        if(rec & (1 << index) > 0):
+            rec = rec ^ (1 << index)
+    return rec
